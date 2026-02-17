@@ -1,0 +1,56 @@
+<template>
+  <lightning-card title="Test Form" icon-name="standard:contact">
+    <div class="slds-p-around_medium">
+      <lightning-input
+        label="First Name"
+        value={firstName}
+        onchange={handleFirstNameChange}
+      ></lightning-input>
+      <lightning-input
+        label="Last Name"
+        value={lastName}
+        onchange={handleLastNameChange}
+        required
+      ></lightning-input>
+      <lightning-input
+        label="Email"
+        type="email"
+        value={email}
+        onchange={handleEmailChange}
+        required
+      ></lightning-input>
+      <lightning-input
+        label="Phone"
+        type="tel"
+        value={phone}
+        onchange={handlePhoneChange}
+      ></lightning-input>
+      <lightning-textarea
+        label="Message"
+        value={message}
+        onchange={handleMessageChange}
+      ></lightning-textarea>
+      <div class="slds-m-top_medium">
+        <lightning-button
+          variant="brand"
+          label="Submit"
+          onclick={handleSubmit}
+        ></lightning-button>
+        <lightning-button
+          label="Reset"
+          onclick={handleReset}
+          class="slds-m-left_x-small"
+        ></lightning-button>
+      </div>
+    </div>
+    <template if:true={submitted}>
+      <div class="slds-p-around_medium slds-theme_success slds-m-top_medium">
+        <p><strong>Form submitted successfully!</strong></p>
+        <p>Name: {firstName} {lastName}</p>
+        <p>Email: {email}</p>
+        <p>Phone: {phone}</p>
+        <p>Message: {message}</p>
+      </div>
+    </template>
+  </lightning-card>
+</template>
